@@ -1,0 +1,39 @@
+Spring Boot Actuator is a module that provides production-ready features for monitoring and
+managing your Spring Boot application. It includes built-in endpoints to expose application
+health, metrics, environment details, and more.
+
+Actuator Endpoints:-
+Once enabled, the Actuator provides several built-in endpoints accessible via HTTP (/actuator/*).
+    Endpoint	                Description
+/actuator/health	    Shows application health status
+/actuator/info	        Displays application metadata
+/actuator/metrics	    Provides application performance metrics
+/actuator/env	        Shows environment properties
+/actuator/mappings	    Displays all registered URL mappings
+/actuator/threaddump	Provides thread dump for debugging
+/actuator/loggers	    Manages log levels dynamically
+
+
+Step-by-Step Guide to Generate a Spring Boot Project with Actuator in IntelliJ IDEA:-
+
+1-> Create a New Spring Boot Project in IntelliJ IDEA:-
+Open IntelliJ IDEA
+Click on "New Project"
+Select Spring Initializr
+Enter Project Details:
+Group: com.example
+Artifact: actuator-demo
+Name: actuator-demo
+Package: com.example.actuator
+Click Next
+
+2-> Add Dependencies:-
+    ✔ Spring Web (For REST APIs)
+    ✔ Spring Boot Actuator (For Monitoring & Health Checks)
+
+    Then click Finish to create the project.
+
+ 3-> Add Actuator Configuration in application.yml
+ 4-> Create project (or) programs
+ 5-> Run the application
+ 6-> Navigate to browser to see the output.

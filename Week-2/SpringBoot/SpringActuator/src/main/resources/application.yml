@@ -1,0 +1,25 @@
+server:
+  port: 8081  # Define the application port
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # Enable all actuator endpoints (health, metrics, etc.)
+  endpoint:
+    health:
+      show-details: always  # Show detailed health info
+  info:
+    env:
+      enabled: true  # Enable environment info in the /actuator/info endpoint
+
+#Ignore the red coloured font because it has no errors.
+info:
+  app:
+    name: "Actuator Demo Application"
+    version: "1.0.0"
+    description: "Spring Boot Application with Actuator using YAML"
+
+
+
+

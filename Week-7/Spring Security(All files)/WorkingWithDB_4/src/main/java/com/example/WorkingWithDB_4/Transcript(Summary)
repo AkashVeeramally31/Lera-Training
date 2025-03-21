@@ -1,0 +1,53 @@
+So let's try to understand the project here.
+So what I will do is let's start with the security config.
+Now what we are trying to do is basically we want to verify the user from our database.
+The data database which I'm using is Postgres.
+So in our data table basically we have the id username and password.
+The table name is users.
+And to achieve that we have to change our authentication provider.
+And we want to say that I want to connect to the database.
+And to do that we have to use Dao authentication provider because Dao is your database access.
+And then to achieve that we have to specify the user detail service.
+Because if authentication provider wants to work it will ask you for the service class.
+Now this service is a interface which is user detail service.
+We have to implement it.
+And the way we have implemented is by creating a class called My User Detail Service, which implements
+the User Detail service in which you have only one method, which is load user by username.
+But then since we the data is coming from database, we also need a user repo layer.
+Now using this repo which has a method called find user by username.
+And we are using JPA so we don't have to write the SQL queries.
+What we are doing is we are firing a method, or we are calling a method which returns you the object
+of user.
+If the user is there, then of course you have to return the object of user.
+But if the user is not there, we have to.
+We have to throw an exception.
+But question arises how will you return this user?
+So we have to basically wrap this user object into a user principal for extra things like expiry and
+all those stuff.
+And to achieve that we have to implement the user details interface.
+And we have done that in this class which is user principal.
+Now user principal is a class which implements the user details and principal means current user.
+And in this particular class we have multiple methods three methods for one for the authority, one
+for username, one for password.
+Apart from this, others are for your expiry, for your account and for your credentials.
+And then, you know, basically just to give you a summary, when in a bank account, you get a notification
+after every one month or three months that change your password.
+That's how they basically set this up.
+Okay.
+So yeah, but then we have not done that.
+So we have only focused on this three and we and all this thing basically you have your table and your
+class which represents that which is your user class, which is an entity which has three columns.
+Now, depending upon your number of columns in the table, this will change.
+So if you have three columns you will have three properties.
+If you have five columns, you will have five properties here which you want to map.
+And that's how it is working.
+Few other changes which you have made in the application properties.
+We have specified the properties to connect with the Postgres.
+If you have a different DBMs, you will change this.
+And also in the XML file we have to mention two things the JPA repository and the data JPA.
+And we have to mention the Postgres.
+And by doing this the security is working.
+
+Your application is secured with the help of database, but it's not completely secure because we are
+still storing data in the plain text.
+We have to change this.

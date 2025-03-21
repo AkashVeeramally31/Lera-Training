@@ -1,0 +1,17 @@
+
+<!--To add configuration we need to navigate to 'spring 6 bean configuration xml' in that copy the
+beans tag-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="dev" class="org.example.Dev">
+
+    </bean>
+
+<!--    If we have more classes then we need to create more 'bean' tags-->
+
+</beans>

@@ -1,0 +1,42 @@
+When you run a Spring Boot application, the execution follows a structured flow:
+
+1-> Application Startup:-
+The entry point of the application is the main() method inside DemoApplication.java:
+Execution Flow:
+	JVM starts the program by calling the main() method.
+	Spring Boot initializes using SpringApplication.run(), which does the following:
+	Creates the Spring Application Context.
+	Performs component scanning (@Component, @RestController, @Service, @Repository, etc.).
+	Auto-configures necessary components using @SpringBootApplication.
+	Starts the embedded Tomcat server (default on port 8080).
+	Loads all beans and dependencies.
+
+2-> Component Scanning & Bean Creation:-
+Spring Boot automatically scans components in the package and sub-packages.
+These components are scanned and registered as Beans in the Spring Application Context.
+
+3-> HTTP Request Handling
+Once the application is running, Spring Boot listens for HTTP requests on localhost:8080.
+📌 Example:
+A request is made to http://localhost:8080/api/hello.
+✅ Execution Flow:
+The embedded Tomcat server receives the request.
+It routes the request to the Spring Dispatcher Servlet (DispatcherServlet).
+The DispatcherServlet consults the Handler Mapping and finds a matching Controller.
+The mapped methods are called.
+The responses are returned to the client.
+
+4-> Response Sent Back to Client
+📌 The response flows back:
+Spring Boot wraps it in an HTTP response.
+The response is sent back to the client.
+
+
+Complete Flow Summary-
+1️⃣ Spring Boot application starts (main() method).
+2️⃣ Spring scans and loads all beans (@Component, @Service, @RestController).
+3️⃣ Tomcat starts and listens on port 80801.
+4️⃣ HTTP request is received → Passed to DispatcherServlet.
+5️⃣ Controller method is executed (@GetMapping("/hello")).
+6️⃣ Response is sent back to the client (Hello, Spring Boot!).
+

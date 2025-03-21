@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    This is for Setter Injection-->
+<!--    <bean id="devObj" class="org.example.DevObj">-->
+<!--        <property name="lap" ref="lapObj"/>-->
+<!--    </bean>-->
+
+<!--    This is for Constructor Injection-->
+    <bean id="devObj" class="org.example.DevObj">
+        <constructor-arg ref="lapObj"/>
+    </bean>
+
+
+    <!--    If we have more classes then we need to create more 'bean' tags-->
+
+    <bean id="lapObj" class="org.example.LaptopObj">
+
+    </bean>
+
+</beans>

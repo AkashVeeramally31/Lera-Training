@@ -1,0 +1,42 @@
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xsi:schemaLocation="-->
+<!--        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">-->
+
+
+<!--    <bean id="dev" class="org.example.Dev">-->
+<!--        <property name="comp" ref="lap"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="lap" class="org.example.Laptop">-->
+
+<!--    </bean>-->
+
+<!--    <bean id="desk" class="org.example.Desktop">-->
+
+<!--    </bean>-->
+<!--</beans>-->
+
+
+
+<!--To include Autowiring in spring we need to use 'autowire' attribute-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="dev" class="org.example.Dev" autowire="byName">
+
+    </bean>
+
+    <bean id="comp" class="org.example.Laptop">
+
+    </bean>
+
+    <bean id="desk" class="org.example.Desktop">
+
+    </bean>
+
+</beans>

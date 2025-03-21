@@ -1,0 +1,7 @@
+
+#Setting the username and password
+spring:
+  security:
+    user:
+      name: user
+      password: 1234

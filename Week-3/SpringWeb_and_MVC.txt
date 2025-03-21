@@ -1,0 +1,27 @@
+Annotation		Description
+@RestController	 Defines a REST API controller (returns JSON/XML)
+@Controller	 Defines a web controller (returns views)
+@RequestMapping	 Maps HTTP requests to classes/methods
+@GetMapping	 Handles GET requests
+@PostMapping	 Handles POST requests
+@PutMapping	 Handles PUT requests
+@DeleteMapping	 Handles DELETE requests
+@PathVariable	 Extracts variables from the URL
+@RequestParam	 Extracts query parameters
+@RequestBody	 Extracts JSON data from the request body
+@ResponseBody	 Returns JSON/text from a @Controller
+
+Conclusion:-
+@RestController is for APIs, while @Controller is for web applications.
+@GetMapping, @PostMapping, @PutMapping, @DeleteMapping are used for handling HTTP requests.
+@PathVariable and @RequestParam help extract parameters.
+@RequestBody handles JSON request data.
+
+
+Execution Flow in SpringBootMVC:-
+1. Client (Browser/Postman) sends an HTTP request (GET, POST, etc.).
+2. The request reaches the DispatcherServlet (Front Controller).
+3. The Controller (@RestController/@Controller) processes the request.
+4. The Controller interacts with the Service Layer (Business Logic).
+5. The Service Layer interacts with the Repository (Database Layer).
+6. The response is sent back to the Client (JSON, HTML, etc.).

@@ -1,0 +1,27 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+<!--    The below tag is for Setter Injection-->
+<!--    <bean id="dev" class="org.example.Dev">-->
+<!--        <property name="age" value="20"/>-->
+<!--    </bean>-->
+
+
+<!--    The below tag is for Constructor Injection-->
+<!--    So we are using 'constructor-arg' so we create the parameterized constructor in 'Dev' class-->
+    <bean id="dev" class="org.example.Dev">
+        <constructor-arg value="18"/>
+    </bean>
+
+
+    <!--    If we have more classes then we need to create more 'bean' tags-->
+
+    <bean id="lap" class="org.example.Laptop">
+
+    </bean>
+
+</beans>

@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:myDB
+    driverClassName: org.h2.Driver
+    username: akash
+    password: 1234
+  jpa:
+    show-sql: true  # Shows SQL queries in the console
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG  # Logs actual SQL queries
+        orm.jdbc.bind: TRACE  # Logs query parameter values

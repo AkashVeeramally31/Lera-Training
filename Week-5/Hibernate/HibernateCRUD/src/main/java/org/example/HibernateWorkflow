@@ -1,0 +1,25 @@
+Overview:-
+Hibernate follows a structured workflow to interact with a relational database. It acts as a bridge
+between Java objects and database tables, handling object persistence, transactions, and queries
+efficiently.
+
+Hibernate Workflow Steps:-
+1️⃣ Java Object (POJO) → Hibernate Configuration
+2️⃣ SessionFactory Initialization
+3️⃣ Session Creation
+4️⃣ Transaction Handling
+5️⃣ Query Execution (HQL/Criteria API/SQL)
+6️⃣ Object Mapping & Data Persistence
+7️⃣ Transaction Commit & Session Closing
+
+Complete Hibernate Workflow:-
+Java POJO ↔ Hibernate ORM ↔ SQL Query ↔ Database
+-----------------------------------------------
+1. Define Entity Class (@Entity)
+2. Configure Hibernate (hibernate.cfg.xml)
+3. Create SessionFactory (Configuration.buildSessionFactory())
+4. Open Session (sessionFactory.openSession())
+5. Begin Transaction (session.beginTransaction())
+6. Perform Database Operation (session.save/update/delete)
+7. Commit Transaction (transaction.commit())
+8. Close Session (session.close())

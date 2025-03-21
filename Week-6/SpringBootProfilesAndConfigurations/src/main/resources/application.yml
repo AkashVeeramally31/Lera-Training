@@ -1,0 +1,44 @@
+# Command-line arguments (--spring.profiles.active=dev)
+spring:
+  profiles:
+    active: dev  # Default profile
+
+#To activate prod database change dev to prod and uncomment the prod code in this file.
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dev_db
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  sql:
+    init:
+      mode: always    # Ensures data.sql runs in all environments
+---
+#spring:
+#  config:
+#    activate:
+#      on-profile: prod
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/prod_db
+#    username: postgres
+#    password: 1234
+#    driver-class-name: org.postgresql.Driver
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: false
+#  sql:
+#    init:
+#      mode: always    # Ensures data.sql runs in all environments
+
+
+#spring.profiles.active=dev enables the dev environment.
+#Change to prod for production settings.

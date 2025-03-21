@@ -1,0 +1,115 @@
+Data Validation and Error Handling in Spring Boot
+Introduction
+Data validation and error handling are crucial aspects of any web application to ensure data integrity, prevent invalid inputs, and provide meaningful feedback to users. Spring Boot provides built-in support for validation and error handling using annotations like @Valid, @ExceptionHandler, and @RestControllerAdvice, along with custom exception handling mechanisms.
+
+1) Data Validation in Spring Boot
+What is Data Validation?
+Data validation ensures that input data meets defined constraints before being processed. It helps prevent invalid, incomplete, or malicious data from entering the system.
+Spring Boot integrates with Jakarta Validation API (formerly Javax Validation API), which provides annotation-based validation.
+
+Validation Annotations in Spring Boot
+Spring Boot uses Jakarta Validation (jakarta.validation.constraints) to validate request data. Some commonly used validation annotations include:
+
+Annotation	Description
+@NotNull	Ensures the field is not null
+@NotBlank	Ensures the field is not blank (for Strings)
+@NotEmpty	Ensures the field is not empty (for Collections, Strings, etc.)
+@Min(value)	Ensures the number is not less than the specified minimum value
+@Max(value)	Ensures the number is not greater than the specified maximum value
+@Size(min, max)	Ensures the field has a length within the given range
+@Email	Ensures a valid email format
+@Pattern(regex)	Ensures the field matches the specified regular expression.
+
+How to Implement Validation?
+Step 1: Define a DTO (Data Transfer Object) with Validation Constraints
+A DTO is used to transfer data while applying validation constraints.
+
+Step 2: Apply Validation in Controller
+The @Valid annotation is used in a controller method to enforce validation.
+
+2) Exception Handling
+
+Exception handling refers to the process of catching, managing, and responding to exceptions in a structured way. 
+It ensures that:
+Users receive meaningful error messages.
+The application does not crash unexpectedly.
+Logs capture relevant error details for debugging.
+
+Annotations in Exception Handling:-
+Annotation			Description
+@ExceptionHandler	Handles specific exceptions at the controller level
+@RestControllerAdvice	Global exception handling for the entire application
+@ResponseStatus		Sets HTTP status code for custom exceptions
+
+
+Spring Boot provides multiple ways to handle exceptions:
+1) Custom Exceptions
+2) Global Exception Handling (@RestControllerAdvice)
+3) Spring Boot’s Default Error Handling Mechanism
+4) Custom Error Responses
+
+
+1. Custom Exceptions in Spring Boot
+1.1 What Are Custom Exceptions?
+A custom exception is a user-defined exception that extends Java’s RuntimeException or Exception class. It allows developers to create meaningful exception messages tailored to their application’s needs.
+
+1.2 Why Use Custom Exceptions?
+To improve code readability and maintainability.
+To provide specific error messages based on different error conditions.
+To separate business logic from exception handling logic.
+1.3 How to Create a Custom Exception?
+A custom exception can be created by extending RuntimeException or Exception.
+
+
+2. Global Exception Handling (@RestControllerAdvice)
+2.1 What is Global Exception Handling?
+Handling exceptions at the global level ensures that all controllers share the same error-handling logic. Instead of handling exceptions separately in every controller, we can define a global exception handler using @RestControllerAdvice.
+
+2.2 Why Use Global Exception Handling?
+Eliminates repetitive exception-handling code in controllers.
+Provides a centralized mechanism to handle errors.
+Helps in logging and debugging errors efficiently.
+2.3 How to Implement Global Exception Handling?
+Use @RestControllerAdvice with @ExceptionHandler to handle exceptions globally.
+
+3. Spring Boot’s Default Error Handling Mechanism
+3.1 What is Spring Boot's Default Error Handling?
+Spring Boot provides a built-in error-handling mechanism using the BasicErrorController, which automatically generates a JSON response when an exception occurs.
+
+3.2 How Does It Work?
+When an unhandled exception is thrown in a Spring Boot application:
+
+Spring Boot catches the exception.
+It generates a default JSON error response.
+The response contains details like timestamp, status code, error message, path, etc.
+
+Advantages of Default Error Handling
+✅ Provides a standard error format.
+✅ No additional configuration is required.
+✅ Works automatically for 404 NOT FOUND, 400 BAD REQUEST, etc.
+
+
+4. Custom Error Responses
+4.1 What Are Custom Error Responses?
+Sometimes, the default error response may not be user-friendly or may contain unnecessary details. Custom error responses allow developers to format error messages according to their needs.
+
+4.2 Why Use Custom Error Responses?
+To provide structured error messages that are more meaningful.
+To remove unnecessary fields from default Spring Boot error responses.
+To ensure consistent error response format across the application.
+4.3 How to Create a Custom Error Response?
+Define a class for the custom error response.
+
+Step 1: Create an Error Response DTO
+Step 2: Modify the Global Exception Handler to Use the Custom Error Response.
+
+
+
+Comparison of Exception Handling Approaches in Spring Boot:-
+	Approach								Description							When to Use?
+Custom Exceptions					Define user-specific exceptions by extending RuntimeException.	When you need meaningful exception names for specific cases.
+Global Exception Handling (@RestControllerAdvice)	Centralized exception handling for the entire application.	When you want to handle all exceptions in one place.
+Spring Boot’s Default Error Handling			Built-in error-handling mechanism.				When no custom handling is needed (suitable for quick projects).
+Custom Error Responses					Return structured and meaningful error messages.		When you want to control the error format returned to users.
+
+
